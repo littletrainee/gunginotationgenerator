@@ -3,6 +3,8 @@ package GunGiNotationGenerator
 import (
 	"fmt"
 	"time"
+
+	"github.com/littletrainee/ClearConsole"
 )
 
 func (g *GunGiNotationGenerator) Start() {
@@ -14,13 +16,16 @@ func (g *GunGiNotationGenerator) Start() {
 
 	fmt.Println("對弈條件設置結束\n布陣開始")
 	fmt.Scanln()
+	ClearConsole.ClearConsole()
 	g.wholeGameTime.StartTime = time.Now().Format("15:04:05")
 
 	// 布置陣地
 	g.setUp.SetUpLoop(g.komaHolder, g.title.Level)
 
+	g.wholeGameTime.SetUpEndTime = time.Now().Format("15:04:05")
 	fmt.Println("布陣結束\n對弈開始")
 	fmt.Scanln()
+	ClearConsole.ClearConsole()
 
 	// 對弈期間
 	g.duel.DuelLoop(g.komaHolder, g.title.Level)

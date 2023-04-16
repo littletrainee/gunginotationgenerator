@@ -21,7 +21,7 @@ func RCL(_先後手 先後手, level Level, State State) Position {
 	for {
 		fmt.Print("請輸入" + 是先手還後手(_先後手) + "的縱橫段(e/E)離開本階段：")
 		fmt.Scanln(&key)
-		if key == "e" {
+		if key == "e" || key == "E" {
 			position.SetNil()
 			return position
 		}
@@ -57,7 +57,7 @@ func RCL(_先後手 先後手, level Level, State State) Position {
 			fmt.Println("輸入錯誤請重新輸入!")
 			continue
 		}
-		fmt.Print("輸入的縱橫段為：" + key + "\n正確請再按一次，不正確請隨意輸入")
+		fmt.Println("輸入的縱橫段為：" + key + "\n正確請再按一次，不正確請隨意輸入")
 		var check string
 		fmt.Scanln(&check)
 		if check != "" {

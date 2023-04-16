@@ -71,9 +71,9 @@ ReEnterRCL:
 			fmt.Println("注意：帥不可以堆疊在其他棋子上方！")
 		}
 
-		fmt.Print("請輸入選擇的駒：")
+		fmt.Print("請輸入選擇的駒或返回(b/B)重新選擇位置：")
 		fmt.Scanln(&駒)
-		if 駒 == "b" {
+		if 駒 == "b" || 駒 == "B" {
 			goto ReEnterRCL
 		}
 		選擇的數字, 錯誤 := strconv.Atoi(駒)
