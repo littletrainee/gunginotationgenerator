@@ -31,7 +31,7 @@
 
 遊戲進行期間除了**砲**、**筒**與**弓**可以進行跳棋以外其餘棋子皆無法進行跳棋，若這三個特殊棋的前方有高於自己段數的棋子在自己前方時，擇無法進行跳棋方式的前進，類似**象棋**的**柺馬腳**。
 
-**謀**同樣屬於特殊棋，雖然沒有像是**砲**、**筒**與**弓**一樣有跳棋功能，但是卻可以使用背叛，若自己的備牌區有與被堆疊的棋子一樣的棋子時，對其進行**俘獲**可以將己方駒台上的旗子替換為被堆疊的對方棋子，使對方棋子移出遊戲並增加我方棋子。
+**謀**同樣屬於特殊棋，雖然沒有像是**砲**、**筒**與**弓**一樣有跳棋功能，但是卻可以使用背叛，若自己的 KOMATAI 有與被堆疊的棋子一樣的棋子時，對其進行**俘獲**可以將己方駒台上的旗子替換為被堆疊的對方棋子，使對方棋子移出遊戲並增加我方棋子。
 
 在遊戲進行期間雙方輪流進行移駒或新的動作直到將對方的**帥**移出遊戲為止，才算結束這局對弈。
 
@@ -42,15 +42,15 @@
 本儲存庫為軍儀棋的棋譜產生器，可以直接匯入在代碼內使用
 
 ```Go
-import "github.com/littletrainee/GunGiNotationGenerator"
+import "github.com/littletrainee/gunginotationgenerator"
 ```
 
 並在 main()下面使用以下行即可自動運行本儲存庫代碼
 
 ```Go
-var {想要的變數名稱} GunGiNotationGenerator.GunGiNotationGenerator = GunGiNotationGenerator.GunGiNotationGenerator
+var {想要的變數名稱} gunginotationgenerator.gunginotationgenerator = gunginotationgenerator.gunginotationgenerator
 {想要的變數名稱}.Initilization()
 {想要的變數名稱}.Start()
 ```
 
-或直接使用儲存庫下的[build.exe](https://github.com/littletrainee/GunGiNotationGenerator/blob/main/build.exe)檔案。
+或直接使用儲存庫下的[build.exe](https://github.com/littletrainee/gunginotationgenerator/blob/main/build.exe)檔案。

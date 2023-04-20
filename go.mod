@@ -1,4 +1,4 @@
-module github.com/littletrainee/GunGiNotationGenerator
+module github.com/littletrainee/gunginotationgenerator
 
 go 1.19
 
