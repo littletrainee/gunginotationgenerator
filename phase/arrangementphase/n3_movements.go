@@ -4,24 +4,26 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/littletrainee/gunginotationgenerator/boardposition"
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
 	"github.com/littletrainee/gunginotationgenerator/enum/phase"
 	"github.com/littletrainee/gunginotationgenerator/enum/target"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 	_phase "github.com/littletrainee/gunginotationgenerator/phase"
-	"github.com/littletrainee/gunginotationgenerator/position"
 )
 
-func (s *SetUp) movements(kh komaholder.KomaHolder,
-	firstorsecond firstandsecondmove.FirstAndSecondMove, 階級 level.Level) string {
+// 先後手的動作
+func (a *ArrangementPhase) movements(kh komahandler.KomaHandler,
+	firstorsecond firstandsecondmove.FirstAndSecondMove,
+	階級 level.Level) string {
 	var (
-		位置 position.Position = position.Position{}
+		位置 boardposition.BoatdPosition = boardposition.BoatdPosition{}
 		駒  string
 	)
 ReEnterRCL:
 	位置 = _phase.ColumnRowDan(firstorsecond, 階級, phase.ARRANGEMENT_PHASE)
-	if 位置.Empty() {
+	if 位置.IsEmpty() {
 		return "済み"
 	}
 	for {
@@ -40,8 +42,8 @@ ReEnterRCL:
 			fmt.Println("輸入錯誤請重新輸入!")
 			continue
 		}
-		駒 = _phase.GetString(可能的選擇, 選擇的數字-1)
-		_phase.FromKomaDaiToBoard(kh, 駒, firstorsecond)
+		駒 = _phase.ProbablyKoma(可能的選擇, 選擇的數字-1)
+		_phase.FromKomaTaiToBoard(kh, 駒, firstorsecond)
 		break
 	}
 

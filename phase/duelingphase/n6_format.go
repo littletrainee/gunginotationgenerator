@@ -5,10 +5,11 @@ import (
 	"github.com/littletrainee/gunginotationgenerator/duelinground"
 )
 
-func (d *Duel) Format() string {
+// 回傳格式化後的對弈歧見物件的屬性
+func (d *DuelingPhase) Format() string {
 	var rt string = "<center>\n\n"
 	if len(d.RoundList) > constant.MAXROW {
-		var temp [][]duelinground.DuelRound
+		var temp [][]duelinground.DuelingRound
 		//分割為每欄10行
 		for i := 0; i < len(d.RoundList); i += 10 {
 			end := i + 10

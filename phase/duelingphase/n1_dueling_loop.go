@@ -5,11 +5,12 @@ import (
 
 	"github.com/littletrainee/ClearConsole"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
 // 對弈期間的迴圈
-func (d *Duel) DuellingLoop(komaHolder komaholder.KomaHolder, Level level.Level) {
+func (d *DuelingPhase) Loop(komaHolder komahandler.KomaHandler,
+	Level level.Level) {
 	var round int = 1
 	for !d.End {
 		fmt.Printf("第 %d 巡\n\n", round)

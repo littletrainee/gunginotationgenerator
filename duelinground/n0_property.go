@@ -1,8 +1,10 @@
+// 對弈巡包
 package duelinground
 
 import "github.com/littletrainee/gunginotationgenerator/paircapture"
 
-type DuelRound struct {
+// 對弈巡物件
+type DuelingRound struct {
 	Order       int
 	First       string
 	Second      string

@@ -1,8 +1,10 @@
-package komaholder
+// 駒管理者包
+package komahandler
 
 import "image/color"
 
-type KomaHolder struct {
+// 駒管理者物件
+type KomaHandler struct {
 	FirstKomaTai          map[string]int
 	SecondKomaTai         map[string]int
 	FirstKomaTaiAndBoard  map[string]int

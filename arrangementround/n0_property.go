@@ -1,6 +1,8 @@
+// 布陣巡包
 package arrangementround
 
-type SetUpRound struct {
+// 布陣巡物件
+type ArrangementRound struct {
 	Order  int
 	First  string
 	Second string

@@ -7,10 +7,10 @@ import (
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
 	"github.com/littletrainee/gunginotationgenerator/enum/target"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
-func Print(kH komaholder.KomaHolder, _先Second firstandsecondmove.FirstAndSecondMove, l level.Level, t target.Target) string {
+func Print(kH komahandler.KomaHandler, _先Second firstandsecondmove.FirstAndSecondMove, l level.Level, t target.Target) string {
 	var (
 		index          int
 		rt             string

@@ -5,10 +5,11 @@ import (
 	"image/color"
 
 	"github.com/littletrainee/ClearConsole"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
-func (t *Title) SetNameAndFirst(kh *komaholder.KomaHolder) {
+// 設定雙方的名稱與先後手
+func (t *Title) SetNameAndFirst(kh *komahandler.KomaHandler) {
 	var (
 		key string
 	)

@@ -1,5 +1,7 @@
+// 期間列舉包
 package phase
 
+// 期間
 type Phase int
 
 const (

@@ -48,7 +48,7 @@ import "github.com/littletrainee/gunginotationgenerator"
 並在 main()下面使用以下行即可自動運行本儲存庫代碼
 
 ```Go
-var {想要的變數名稱} gunginotationgenerator.gunginotationgenerator = gunginotationgenerator.gunginotationgenerator
+var {想要的變數名稱} gunginotationgenerator.GunGiNotationGenerator = gunginotationgenerator.GunGiNotationGenerator
 {想要的變數名稱}.Initilization()
 {想要的變數名稱}.Start()
 ```

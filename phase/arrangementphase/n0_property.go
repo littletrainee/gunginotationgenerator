@@ -1,10 +1,11 @@
+// 布陣期間包
 package arrangementphase
 
 import "github.com/littletrainee/gunginotationgenerator/arrangementround"
 
-// 布置陣地期間的物件
-type SetUp struct {
-	roundList   []arrangementround.SetUpRound
+// 布置陣地期間物件
+type ArrangementPhase struct {
+	roundList   []arrangementround.ArrangementRound
 	firstIsEnd  bool
 	secondIsEnd bool
 }

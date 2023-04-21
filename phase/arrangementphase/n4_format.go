@@ -5,17 +5,18 @@ import (
 	"github.com/littletrainee/gunginotationgenerator/constant"
 )
 
-func (s *SetUp) Format() string {
+// 回傳格式化後的布陣期間物件的屬性
+func (a *ArrangementPhase) Format() string {
 	var rt string = "<center>\n\n"
 
-	if len(s.roundList) > constant.MAXROW {
-		var temp [][]arrangementround.SetUpRound
-		for i := 0; i < len(s.roundList); i += 10 {
+	if len(a.roundList) > constant.MAXROW {
+		var temp [][]arrangementround.ArrangementRound
+		for i := 0; i < len(a.roundList); i += 10 {
 			end := i + 10
-			if end > len(s.roundList) {
-				end = len((s.roundList))
+			if end > len(a.roundList) {
+				end = len((a.roundList))
 			}
-			temp = append(temp, s.roundList[i:end])
+			temp = append(temp, a.roundList[i:end])
 		}
 
 		templength := len(temp)
@@ -39,8 +40,8 @@ func (s *SetUp) Format() string {
 	} else {
 		rt += "|巡數|First|Second|\n"
 		rt += "|---|---|---|\n"
-		for i := 0; i < len(s.roundList); i++ {
-			rt += s.roundList[i].Format() + "|\n"
+		for i := 0; i < len(a.roundList); i++ {
+			rt += a.roundList[i].Format() + "|\n"
 		}
 	}
 	rt += "\n\n</center>\n"

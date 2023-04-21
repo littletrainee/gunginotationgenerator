@@ -1,6 +1,8 @@
-package fulltime
+// 時間紀錄包
+package timerecord
 
-type FullTime struct {
+// 時間紀錄物件
+type TimeRecord struct {
 	Date         string
 	StartTime    string
 	SetUpEndTime string

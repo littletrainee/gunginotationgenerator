@@ -7,10 +7,11 @@ import (
 	"github.com/littletrainee/ClearConsole"
 	"github.com/littletrainee/gunginotationgenerator/constant"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
-func (t *Title) SetLevel(kh *komaholder.KomaHolder) {
+// 設置對弈階段，並初始化雙方的駒台與未被俘獲的映射
+func (t *Title) SetLevel(kh *komahandler.KomaHandler) {
 	var (
 		key  string
 		stop string
@@ -39,7 +40,10 @@ func (t *Title) SetLevel(kh *komaholder.KomaHolder) {
 		t.Level = level.ADVANCED
 	}
 
-	var repeat int
+	var (
+		repeat int
+		temp   string
+	)
 	for _, v := range constant.ALLKOMA {
 		if string(v) == stop {
 			break
@@ -55,8 +59,9 @@ func (t *Title) SetLevel(kh *komaholder.KomaHolder) {
 			repeat = 4
 		}
 		for i := 0; i < repeat; i++ {
-			kh.AddtoKomaDai(string(v))
+			temp += string(v)
 		}
 	}
+	kh.Initilization(temp)
 	ClearConsole.ClearConsole()
 }

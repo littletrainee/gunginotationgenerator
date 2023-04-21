@@ -6,29 +6,29 @@ import (
 	"github.com/littletrainee/gunginotationgenerator/arrangementround"
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
 // 每一巡
-func (s *SetUp) turn(kh komaholder.KomaHolder, index int, l level.Level) {
+func (a *ArrangementPhase) turn(kh komahandler.KomaHandler, index int, l level.Level) {
 	var first string
 	var second string
-	if !s.firstIsEnd {
-		first = s.movements(kh, firstandsecondmove.FIRST, l)
+	if !a.firstIsEnd {
+		first = a.movements(kh, firstandsecondmove.FIRST, l)
 		if first == "済み" {
-			s.firstIsEnd = true
+			a.firstIsEnd = true
 		}
 	} else {
 		first = ""
 	}
 	fmt.Println()
-	if !s.secondIsEnd {
-		second = s.movements(kh, firstandsecondmove.SECOND, l)
+	if !a.secondIsEnd {
+		second = a.movements(kh, firstandsecondmove.SECOND, l)
 		if second == "済み" {
-			s.secondIsEnd = true
+			a.secondIsEnd = true
 		}
 	} else {
 		first = ""
 	}
-	s.roundList = append(s.roundList, arrangementround.SetUpRound{Order: index, First: first, Second: second})
+	a.roundList = append(a.roundList, arrangementround.ArrangementRound{Order: index, First: first, Second: second})
 }

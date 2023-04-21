@@ -7,12 +7,13 @@ import (
 	"github.com/littletrainee/gunginotationgenerator/duelinground"
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 	"github.com/littletrainee/gunginotationgenerator/paircapture"
 )
 
 // 每一巡
-func (d *Duel) turn(komaHolder komaholder.KomaHolder, index int, level level.Level) {
+func (d *DuelingPhase) turn(komaHolder komahandler.KomaHandler, index int,
+	level level.Level) {
 	var (
 		first         string
 		second        string
@@ -31,7 +32,7 @@ func (d *Duel) turn(komaHolder komaholder.KomaHolder, index int, level level.Lev
 		d.End = true
 		return
 	}
-	d.RoundList = append(d.RoundList, duelinground.DuelRound{
+	d.RoundList = append(d.RoundList, duelinground.DuelingRound{
 		Order:  index,
 		First:  first,
 		Second: second,

@@ -4,10 +4,11 @@ import (
 	"image/color"
 
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
-func (t *Title) Format(kh komaholder.KomaHolder) string {
+// 回傳格式化後標題物件的屬性
+func (t *Title) Format(kh komahandler.KomaHandler) string {
 	var rt string = t.h3mark
 	if kh.FirstColor == color.Black {
 		rt += t.blackchess + "黑" + "</span>" + "棋方：" + t.black + "<br/>" +

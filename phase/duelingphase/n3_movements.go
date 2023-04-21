@@ -4,26 +4,29 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/littletrainee/gunginotationgenerator/boardposition"
 	"github.com/littletrainee/gunginotationgenerator/capture"
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
 	"github.com/littletrainee/gunginotationgenerator/enum/phase"
 	"github.com/littletrainee/gunginotationgenerator/enum/target"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 	_phase "github.com/littletrainee/gunginotationgenerator/phase"
-	"github.com/littletrainee/gunginotationgenerator/position"
 )
 
-func (d *Duel) movements(komaHolder komaholder.KomaHolder, firstOrSecond firstandsecondmove.FirstAndSecondMove, 階級 level.Level) (string, capture.Capture) {
+// 先後手動作
+func (d *DuelingPhase) movements(komaHolder komahandler.KomaHandler,
+	firstOrSecond firstandsecondmove.FirstAndSecondMove, 階級 level.Level) (
+	string, capture.Capture) {
 	var (
-		位置      position.Position
+		位置      boardposition.BoatdPosition
 		駒       string
 		capture capture.Capture
 		Is新     string
 	)
 ReEnterRCL:
 	位置 = _phase.ColumnRowDan(firstOrSecond, 階級, phase.DUELING_PHASE)
-	if 位置.Empty() {
+	if 位置.IsEmpty() {
 		return "まげました", capture
 	}
 
@@ -43,12 +46,12 @@ ReEnterRCL:
 			fmt.Println("輸入錯誤請重新輸入!")
 			continue
 		}
-		駒 = _phase.GetString(確認列表, 選擇的數字-1)
+		駒 = _phase.ProbablyKoma(確認列表, 選擇的數字-1)
 		// 確認駒台是否有目標駒
 		Is新 = arata(komaHolder, 駒, firstOrSecond)
 		// 有目標駒的話執行新的動作，其他的都是移駒
 		if Is新 == "新" {
-			_phase.FromKomaDaiToBoard(komaHolder, 駒, firstOrSecond)
+			_phase.FromKomaTaiToBoard(komaHolder, 駒, firstOrSecond)
 		} else {
 			capture = moveKoma(komaHolder, firstOrSecond, 階級)
 		}

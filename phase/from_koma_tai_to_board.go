@@ -2,11 +2,12 @@ package phase
 
 import (
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
-	"github.com/littletrainee/gunginotationgenerator/komaholder"
+	"github.com/littletrainee/gunginotationgenerator/komahandler"
 )
 
 // 從駒台到棋盤
-func FromKomaDaiToBoard(komaHolder komaholder.KomaHolder, koma string, firstorsecond firstandsecondmove.FirstAndSecondMove) {
+func FromKomaTaiToBoard(komaHolder komahandler.KomaHandler, koma string,
+	firstorsecond firstandsecondmove.FirstAndSecondMove) {
 	if firstorsecond == firstandsecondmove.FIRST {
 		komaHolder.FirstKomaTai[koma]--
 		_, 存在 := komaHolder.FirstBoard[koma]

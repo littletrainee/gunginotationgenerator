@@ -1,5 +1,7 @@
+// 階級列舉包
 package level
 
+// 階級
 type Level int
 
 const (
@@ -9,6 +11,7 @@ const (
 	ADVANCED
 )
 
+// 回傳階級名稱
 func GetLevelName(level Level) string {
 	switch level {
 	case BEGINNER:

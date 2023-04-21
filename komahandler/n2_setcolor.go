@@ -1,8 +1,9 @@
-package komaholder
+package komahandler
 
 import "image/color"
 
-func (k *KomaHolder) SetColor(Color color.Color) {
+//設定先後手顏色
+func (k *KomaHandler) SetColor(Color color.Color) {
 	if Color == color.Black {
 		k.FirstColor = color.Black
 		k.SecondColor = color.White

@@ -1,3 +1,4 @@
+// 常數包
 package constant
 
 const ALLKOMA string = "帥大中小侍忍槍砦馬兵弓砲筒謀"

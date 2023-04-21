@@ -1,3 +1,4 @@
+// 期間包
 package phase
 
 import (
@@ -5,15 +6,17 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/littletrainee/gunginotationgenerator/boardposition"
 	"github.com/littletrainee/gunginotationgenerator/enum/firstandsecondmove"
 	"github.com/littletrainee/gunginotationgenerator/enum/level"
 	_phase "github.com/littletrainee/gunginotationgenerator/enum/phase"
-	"github.com/littletrainee/gunginotationgenerator/position"
 )
 
-func ColumnRowDan(_先Second firstandsecondmove.FirstAndSecondMove, l level.Level, state _phase.Phase) position.Position {
+// 回傳縱橫斷詢問的結果
+func ColumnRowDan(firstorsecond firstandsecondmove.FirstAndSecondMove,
+	l level.Level, state _phase.Phase) boardposition.BoatdPosition {
 	var (
-		position position.Position = position.Position{}
+		position boardposition.BoatdPosition = boardposition.BoatdPosition{}
 		key      string
 		maxlayer int
 		err      error
@@ -24,10 +27,10 @@ func ColumnRowDan(_先Second firstandsecondmove.FirstAndSecondMove, l level.Leve
 		maxlayer = 3
 	}
 	for {
-		fmt.Print("請輸入" + firstandsecondmove.FirstOrSecond(_先Second) + "的縱橫段(e/E)離開本階段：")
+		fmt.Print("請輸入" + firstandsecondmove.FirstOrSecond(firstorsecond) + "的縱橫段(e/E)離開本階段：")
 		fmt.Scanln(&key)
 		if key == "e" || key == "E" {
-			position.SetNil()
+			position.SetEmpty()
 			return position
 		}
 		_, err = strconv.ParseInt(key, 10, 64)
@@ -37,7 +40,7 @@ func ColumnRowDan(_先Second firstandsecondmove.FirstAndSecondMove, l level.Leve
 		}
 		column, err := strconv.Atoi(string(key[1]))
 		if state == _phase.ARRANGEMENT_PHASE {
-			if _先Second == firstandsecondmove.FIRST {
+			if firstorsecond == firstandsecondmove.FIRST {
 				if err != nil || column < 7 || column > 9 {
 					fmt.Println("輸入錯誤請重新輸入!")
 					continue

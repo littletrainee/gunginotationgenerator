@@ -1,3 +1,4 @@
+// 對弈期間包
 package duelingphase
 
 import (
@@ -6,8 +7,8 @@ import (
 )
 
 // 對弈期間的物件
-type Duel struct {
-	RoundList []duelinground.DuelRound
+type DuelingPhase struct {
+	RoundList []duelinground.DuelingRound
 	Captured  []paircapture.PairCapture
 	End       bool
 }
